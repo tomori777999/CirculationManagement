@@ -41,20 +41,23 @@
     <tr>
         <td>{{{ $computer->computer_name }}}</td>
         <?php
-          if($computer->circulation_flag==0)
+          if($computer->circulation_flag == 0)
           {
-            echo'<td>貸出可</td>';
-          }elseif($computer->circulation_flag==1) {
-            echo'<td>貸出不可</td>';
+            echo'<td style="color:blue">貸出可</td>';
+          }elseif($computer->circulation_flag == 1) {
+            echo'<td style="color:gray">貸出不可</td>';
           }
         ?>
-        <td></td>
         <td><a class="btn btn-info" href="/">ログ</a></td>
 
         <form action="/" method="post">
         </form>
         <td>
-            <button class="btn btn-danger" type="submit">使用</button>
+            <button class="btn btn-danger" type="submit"
+              <?php
+                if($computer->circulation_flag == 1){echo "disabled";}
+              ?>
+            >使用</button>
         </td>
         {!! Form::close() !!}
     </tr>
