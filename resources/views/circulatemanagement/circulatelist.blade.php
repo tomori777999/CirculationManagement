@@ -26,7 +26,6 @@
 <body>
 <div class="container">
 <h2 class="page-header">利用状況一覧</h2>
-    <p class="pull-right"><a class="btn btn-success" href="/todo/create">ログイン</a></p>
 <table class="table table-hover todo-table">
     <thead>
     <tr>
@@ -45,7 +44,7 @@
           {
             echo'<td style="color:blue">貸出可</td>';
           }elseif($computer->circulation_flag == 1) {
-            echo'<td style="color:gray">貸出不可</td>';
+            echo'<td class="danger" style="color:gray">貸出不可</td>';
           }
         ?>
         <td><a class="btn btn-info" href="/">ログ</a></td>

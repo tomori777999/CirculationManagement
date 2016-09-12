@@ -11,8 +11,17 @@
 |
 */
 
-Route::resource('/circulatemanagement','CirculationManagementController');
+
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => 'auth'], function () {
+    // この中に認証が必要なルーティングを書く
+    Route::resource('/circulatemanagement','CirculationManagementController');
 });
