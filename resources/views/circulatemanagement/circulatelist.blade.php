@@ -40,7 +40,14 @@
     @foreach($computers as $computer)
     <tr>
         <td>{{{ $computer->computer_name }}}</td>
-        <td>{{{ $computer->circulation_flag }}}</td>
+        <?php
+          if($computer->circulation_flag==0)
+          {
+            echo'<td>貸出可</td>';
+          }elseif($computer->circulation_flag==1) {
+            echo'<td>貸出不可</td>';
+          }
+        ?>
         <td></td>
         <td><a class="btn btn-info" href="/">ログ</a></td>
 
