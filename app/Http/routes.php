@@ -11,6 +11,8 @@
 |
 */
 
+Route::resource('/circulatemanagement','CirculationManagementController');
+
 Route::get('/', function () {
     return view('welcome');
 });
