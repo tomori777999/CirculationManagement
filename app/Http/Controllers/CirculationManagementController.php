@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Computer;
 use App\Http\Requests;
+use Auth;
 
 class CirculationManagementController extends Controller
 {
@@ -18,6 +19,19 @@ class CirculationManagementController extends Controller
     public function index()
     {
       $computers = $this->computer->all();
-      return view('circulatemanagement.circulatelist')->with(compact('computers'));
+      $user_name = Auth::user()->name;
+      return view('circulatemanagement.circulatelist')->with(compact('computers','user_name'));
+    }
+    public function update($computer_id)
+    {
+        $result = DB::select('select circulation_flag from users where id = ?', [$computer_id]);
+        
+        if($result==1){
+          $this->computer->where('computer_id', $computer_id)->update(['circulation_flag' =>0]);
+        }elseif($result==0){
+          $this->computer->where('computer_id', $computer_id)->update(['circulation_flag' =>1]);
+        }
+
+        return ;
     }
 }

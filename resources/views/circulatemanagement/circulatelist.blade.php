@@ -26,6 +26,7 @@
 <body>
 <div class="container">
 <h2 class="page-header">利用状況一覧</h2>
+<p class="pull-right">ユーザ名：{{{$user_name}}}</p>
 <table class="table table-hover todo-table">
     <thead>
     <tr>
@@ -49,14 +50,19 @@
         ?>
         <td><a class="btn btn-info" href="/">ログ</a></td>
 
-        <form action="/" method="post">
+        <form action="/update" method="update">
         </form>
         <td>
-            <button class="btn btn-danger" type="submit"
+            <button  type="submit" class="btn
               <?php
-                if($computer->circulation_flag == 1){echo "disabled";}
+                if($computer->circulation_flag == 1){
+                  echo 'btn-danger" disabled >使用中...</button>';
+                }elseif ($computer->circulation_flag == 0) {
+                  echo 'btn-success " >利用する</button>';
+                }
               ?>
-            >使用</button>
+
+              <iput type="hidden" name="computer_id" value="{{{$computer}}}">
         </td>
         {!! Form::close() !!}
     </tr>
