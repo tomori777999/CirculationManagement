@@ -25,5 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
     // この中に認証が必要なルーティングを書く
 
     Route::resource('circulatemanagement',CirculationManagementController::class);
+    Route::post('circulatemanagement/replace','CirculationManagementController@replace');
     // Route::resource('/update','CirculationManagementController@update');
 });

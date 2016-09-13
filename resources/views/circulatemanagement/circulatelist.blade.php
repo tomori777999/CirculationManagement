@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+  @if($user_status == 0)
 <div class="container">
 <h2 class="page-header">利用状況一覧</h2>
-<p class="pull-right">
-  利用状況：{{ $user_status ? '利用中のPCがあります' : '利用中のPCはありません' }}
-</p>
 <table class="table table-hover todo-table">
     <thead>
     <tr>
@@ -27,8 +25,6 @@
             <td style="color:gray" class="danger"> 貸出不可</td>
         @endif
 
-
-
         {!! Form::open(['url' => 'circulatemanagement/update', 'method' => 'PUT']) !!}
         <td></td>
         <td>
@@ -43,4 +39,17 @@
 </tbody>
 </table>
 </div>
+@else
+
+<div class="container">
+<h2 class="page-header">現在利用中です</h2>
+
+<p>
+  別のPCを利用したい場合は"返却"をして下さい。
+</p>
+{!! Form::open(['url' => 'circulatemanagement/replace', 'method' => 'POST']) !!}
+  <button  type="submit" class="btn btn-success" >利用中のPCを返却する</button>
+{!! Form::close() !!}
+@endif
+
 @endsection

@@ -42,4 +42,16 @@ class CirculationManagementController extends Controller
         DB::insert('insert into logs (user_id, computer_id,circulation_flag) values (?, ?,?)', [Auth::user()->id, $computer_id,1]);
         return redirect()->to('circulatemanagement');
     }
+    public function replace()
+    {
+      $user_id = Auth::user()->id;
+      $computer_id =DB::table('logs')
+                     ->where('user_id', $user_id)
+                     ->orderBy('id','desc')
+                     ->take(1)
+                     ->value('computer_id');
+      DB::update('update computers set circulation_flag = 0 where id = ?', [$computer_id]);
+      DB::insert('insert into logs (user_id, computer_id,circulation_flag) values (?, ?,?)', [$user_id, $computer_id,0]);
+      return redirect()->to('circulatemanagement');
+    }
 }
