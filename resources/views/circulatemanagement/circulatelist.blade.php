@@ -4,7 +4,7 @@
 <div class="container">
 <h2 class="page-header">利用状況一覧</h2>
 <p class="pull-right">
-  利用状況：{{ $user_status ? '借りてる' : '借りてない' }}
+  利用状況：{{ $user_status ? '利用中のPCがあります' : '利用中のPCはありません' }}
 </p>
 <table class="table table-hover todo-table">
     <thead>
@@ -19,24 +19,21 @@
     @foreach($computers as $computer)
     <tr>
         <td>{{{ $computer->computer_name }}}</td>
-        
-        <?php
-          if($computer->circulation_flag == 0)
-          {
-            echo'<td style="color:blue">貸出可</td>';
-          }elseif($computer->circulation_flag == 1) {
-            echo'<td class="danger" style="color:gray">貸出不可</td>';
-          }
-        ?>
 
-        <td><a class="btn btn-info" href="/">ログ</a></td>
+
+        @if($computer->circulation_flag == 0)
+            <td style="color:blue"> 貸出可</td>
+        @else
+            <td style="color:gray" class="danger"> 貸出不可</td>
+        @endif
 
         <form action="/update" method="update">
         </form>
+        <td></td>
         <td>
-            <button  type="submit" class=<?php echo $computer->circulation_flag == 1 ? '"btn btn-danger" disabled' : '"btn btn-success"'; ?>>
-              <?php echo $computer->circulation_flag == 1 ? "使用中" : "利用する" ; ?>
-            </button>
+        @if($computer->circulation_flag == 0)
+            <button  type="submit" class="btn btn-success" >このPCを利用する</button>
+        @endif
               <iput type="hidden" name="computer_id" value="{{{$computer}}}">
         </td>
         {!! Form::close() !!}
