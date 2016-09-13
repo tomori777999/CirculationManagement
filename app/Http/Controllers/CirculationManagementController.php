@@ -33,10 +33,13 @@ class CirculationManagementController extends Controller
 
       return view('circulatemanagement.circulatelist')->with(compact('computers','user_status'));
     }
-    public function update($computer_id)
+    public function update(Request $request)
     {
-
-
-      return ;
+        $input = $request->all();
+        var_dump($input);
+        $computer_id = $input['computer_id'];
+        DB::update('update computers set circulation_flag = 1 where id = ?', [$computer_id]);
+        DB::insert('insert into logs (user_id, computer_id,circulation_flag) values (?, ?,?)', [Auth::user()->id, $computer_id,1]);
+        return redirect()->to('circulatemanagement');
     }
 }

@@ -12,7 +12,7 @@ class ComputersTableSeeder extends Seeder
         DB::table('computers')->insert([
             [
                 'computer_name'   => 'PC01',
-                'circulation_flag' => 1
+                'circulation_flag' => 0
             ],
             [
                 'computer_name'   => 'PC02',

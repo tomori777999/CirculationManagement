@@ -18,7 +18,7 @@
     <tbody class="table-hover">
     @foreach($computers as $computer)
     <tr>
-        <td>{{{ $computer->computer_name }}}</td>
+        <th>{{{ $computer->computer_name }}}</th>
 
 
         @if($computer->circulation_flag == 0)
@@ -27,14 +27,15 @@
             <td style="color:gray" class="danger"> 貸出不可</td>
         @endif
 
-        <form action="/update" method="update">
-        </form>
+
+
+        {!! Form::open(['url' => 'circulatemanagement/update', 'method' => 'PUT']) !!}
         <td></td>
         <td>
         @if($computer->circulation_flag == 0)
             <button  type="submit" class="btn btn-success" >このPCを利用する</button>
         @endif
-              <iput type="hidden" name="computer_id" value="{{{$computer}}}">
+            <input type="hidden" name="computer_id" value="{{{$computer->id}}}">
         </td>
         {!! Form::close() !!}
     </tr>
