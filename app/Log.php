@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DBOpelation extends Model
+class Log extends Model
 {
-    
+    //
 }

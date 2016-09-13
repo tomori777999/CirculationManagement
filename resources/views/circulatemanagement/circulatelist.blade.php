@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+@extends('layouts.app')
 
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style>
-        .todo-table td {
-            vertical-align: middle !important;
-        }
-    </style>
-</head>
-<body>
+@section('content')
 <div class="container">
 <h2 class="page-header">利用状況一覧</h2>
-<p class="pull-right">ユーザ名：{{{$user_name}}}</p>
+<p class="pull-right">
+<?php
+  if($user_status == 1){
+    echo '利用状況：借りてる';
+  }else{
+    echo '利用状況：借りてない';
+  }
+?>
+</p>
 <table class="table table-hover todo-table">
     <thead>
     <tr>
@@ -70,8 +55,4 @@
 </tbody>
 </table>
 </div>
-<!-- Scripts -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+@endsection
