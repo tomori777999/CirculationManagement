@@ -26,7 +26,7 @@ class CirculationManagementController extends Controller
       $user_id = Auth::user()->id;
       $user_status =DB::table('logs')
                      ->where('user_id', $user_id)
-                     ->orderBy('id','asc')
+                     ->orderBy('id','desc')
                      ->take(1)
                      ->value('circulation_flag');
 
