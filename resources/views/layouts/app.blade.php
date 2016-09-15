@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    TOP
+                    Gizumo.PC
                 </a>
             </div>
 
@@ -64,7 +64,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                               @if (strstr(Request::url(), '/admins'))
-                                  
+
                               @else
                                   <li><a href="{{ url('admins') }}"><i class="fa fa-btn fa-sign-out"></i>管理者画面</a></li>
                               @endif
