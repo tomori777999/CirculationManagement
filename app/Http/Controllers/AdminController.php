@@ -8,8 +8,13 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
+
+  private $Log;
+
   public function index()
   {
+
+    
     return view('admin.index');
   }
 

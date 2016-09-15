@@ -63,10 +63,10 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                              @if (strstr(Request::url(), '/admins'))
+                              @if (strstr(Request::url(), '/admin'))
 
                               @else
-                                  <li><a href="{{ url('admin?ctt="logs"') }}"><i class="fa fa-btn fa-sign-out"></i>管理者画面</a></li>
+                                  <li><a href="{{ url('admin?ctt=logs') }}"><i class="fa fa-btn fa-sign-out"></i>管理者画面</a></li>
                               @endif
 
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
