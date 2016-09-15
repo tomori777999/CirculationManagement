@@ -26,5 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('circulatemanagement',CirculationManagementController::class);
     Route::post('circulatemanagement/replace','CirculationManagementController@replace');
+    Route::resource('admins',AdminsController::class);
     // Route::resource('/update','CirculationManagementController@update');
 });
