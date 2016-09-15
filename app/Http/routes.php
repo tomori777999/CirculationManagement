@@ -26,6 +26,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('circulatemanagement',CirculationManagementController::class);
     Route::post('circulatemanagement/replace','CirculationManagementController@replace');
-    Route::resource('admins',AdminsController::class);
+    Route::resource('admin',AdminController::class);
+    // Route::group(['prefix' => 'admin'], function()
+    // {
+    //   Route::resource('admin',AdminController::class);
+    // });
     // Route::resource('/update','CirculationManagementController@update');
 });

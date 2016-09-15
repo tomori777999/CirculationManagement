@@ -6,21 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AdminsController extends Controller
+class AdminController extends Controller
 {
-
-
-
   public function index()
   {
-    return view('circulatemanagement.admins_page');
+    return view('admin.index');
   }
-
-
-
-
-
-
-
 
 }
