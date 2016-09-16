@@ -64,7 +64,7 @@
 
                             <ul class="dropdown-menu" role="menu">
                               @if (strstr(Request::url(), '/admin'))
-
+                                  <li><a href="{{ url('/circulatemanagement') }}"><i class="fa fa-btn fa-sign-out"></i>利用者画面</a></li>
                               @else
                                   <li><a href="{{ url('admin?ctt=logs') }}"><i class="fa fa-btn fa-sign-out"></i>管理者画面</a></li>
                               @endif
