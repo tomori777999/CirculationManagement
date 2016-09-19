@@ -8,80 +8,23 @@
               </tr>
             </thead>
                 <tbody>
-                    <tr>
-                        <td >PC_01</td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-success" >編集</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-danger" >削除</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >PC_02</td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-success" >編集</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-danger" >削除</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >PC_03</td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-success" >編集</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-danger" >削除</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >PC_04</td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-success" >編集</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-danger" >削除</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >PC_05</td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-success" >編集</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
-                        <td>
-                            {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                                <button  type="submit" class="btn btn-danger" >削除</button>
-                                <input type="hidden" name="computer_id" value="computer_id">
-                            {!! Form::close() !!}
-                        </td>
+                  @foreach($computers as $computer)
+                  <tr>
+                      <td>{{{ $computer->computer_name }}}</td>
+                      <td>
+                          {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
+                              <button  type="submit" class="btn btn-success" >編集</button>
+                              <input type="hidden" name="computer_id" value="{{{$computer->id}}}">
+                          {!! Form::close() !!}
+                      </td>
+                      <td>
+                          {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
+                              <button  type="submit" class="btn btn-danger" >削除</button>
+                              <input type="hidden" name="computer_id" value="{{{$computer->id}}}">
+                          {!! Form::close() !!}
+                      </td>
+                  </tr>
+                  @endforeach
                     </tr>
                 </tbody>
             </table>

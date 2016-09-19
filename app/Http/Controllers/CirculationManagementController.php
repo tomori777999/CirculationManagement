@@ -40,6 +40,10 @@ class CirculationManagementController extends Controller
         $computer_id = $input['computer_id'];
         DB::update('update computers set circulation_flag = 1 where id = ?', [$computer_id]);
         DB::insert('insert into logs (user_id, computer_id,circulation_flag) values (?, ?,?)', [Auth::user()->id, $computer_id,1]);
+        // $this->logs->user_id = $user_id;
+        // $this->logs->computer_id = $computer_id;
+        // $this->logs->circulation_flag = 1;
+        // $this->logs->save();
         return redirect()->to('circulatemanagement');
     }
     public function replace()
@@ -52,6 +56,10 @@ class CirculationManagementController extends Controller
                      ->value('computer_id');
       DB::update('update computers set circulation_flag = 0 where id = ?', [$computer_id]);
       DB::insert('insert into logs (user_id, computer_id,circulation_flag) values (?, ?,?)', [$user_id, $computer_id,0]);
+      // $this->logs->user_id = $user_id;
+      // $this->logs->computer_id = $computer_id;
+      // $this->logs->circulation_flag = 0;
+      // $this->logs->save();
       return redirect()->to('circulatemanagement');
     }
 }

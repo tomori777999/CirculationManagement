@@ -1,4 +1,6 @@
-<?php $contents = $_GET['ctt'] ?>
+<?php
+  $contents = $_GET['ctt'] 
+?>
 @extends('layouts.app')
 
 @section('content')
