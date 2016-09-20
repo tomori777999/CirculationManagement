@@ -1,4 +1,3 @@
-
 <?php $id = $_GET['id'] ?>
 
 @extends('layouts.app')

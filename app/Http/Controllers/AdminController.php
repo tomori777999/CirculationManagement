@@ -35,7 +35,8 @@ class AdminController extends Controller
     return view('admin.index')->with(compact('computers','logs'));
   }else
   {
-    return redirect()->back();
+    $worning_msg = '管理者以外の方はアクセスできないページです。';
+    return view('admin.notAdmin')->with(compact('worning_msg'));
   }
   }
   public function show(){
