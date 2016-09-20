@@ -26,7 +26,18 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('circulatemanagement',CirculationManagementController::class);
     Route::post('circulatemanagement/replace','CirculationManagementController@replace');
-    Route::resource('admin',AdminController::class);
+    //
+
+    Route::get('admin',function(){
+
+        if(Auth::guard('admin')->attempt(['email'=>'admin1@sample.com','password'=>'admin1']))
+        {
+            return Route::resource('admin',AdminController::class);
+        }else{
+            return "You are not admin.";
+        }
+    });
+
     // Route::group(['prefix' => 'admin'], function()
     // {
     //   Route::resource('admin',AdminController::class);

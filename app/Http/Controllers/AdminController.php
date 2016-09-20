@@ -16,6 +16,7 @@ class AdminController extends Controller
   public function __construct(Computer $computer)
   {
       $this->computer = $computer;
+      $this->middleware('auth:admin', ['except' => 'index']);
   }
 
   public function index()
