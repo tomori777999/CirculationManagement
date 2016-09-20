@@ -16,7 +16,7 @@
     <div class="col-md-9 col-lg-10 main">
 
       [コンテンツ]</br>
-      ここには、log画面時にはドロップダウンリスト[users][computers][rownum]を、pc編集画面時にはボタン[add]を右寄せで設置...したい
+
       @if($id == "logs")
         @include('layouts.admin_contents.logs')
       @elseif($id == "computers")

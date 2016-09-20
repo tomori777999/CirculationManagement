@@ -49,6 +49,4 @@ class AdminController extends Controller
     return view('admin.index')->with(compact('logs',$logs));
   }
 
-
-
 }
