@@ -22,17 +22,17 @@ class CirculationManagementController extends Controller
 
     public function index()
     {
-      $computers = $this->computer->all();
-      $user_id = Auth::user()->id;
-      $user_status =DB::table('logs')
-                     ->where('user_id', $user_id)
-                     ->orderBy('id','desc')
-                     ->take(1)
-                     ->value('circulation_flag');
+        $computers = $this->computer->all();
+        $user_id = Auth::user()->id;
+        $user_status =DB::table('logs')
+                       ->where('user_id', $user_id)
+                       ->orderBy('id','desc')
+                       ->take(1)
+                       ->value('circulation_flag');
 
-
-      return view('circulatemanagement.circulatelist')->with(compact('computers','user_status'));
+        return view('circulatemanagement.circulatelist')->with(compact('computers','user_status'));
     }
+
     public function update(Request $request)
     {
         $input = $request->all();

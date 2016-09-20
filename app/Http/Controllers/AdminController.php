@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Computer;
 use DB;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -19,6 +20,9 @@ class AdminController extends Controller
 
   public function index()
   {
+    $admin_flag = Auth::user()->admin_flag;
+    if($admin_flag == 1)
+    {
     $computers = $this->computer->all();
     $logs =DB::table('logs')
                    ->leftJoin('users','user_id','=','users.id')
@@ -29,6 +33,10 @@ class AdminController extends Controller
                    ->get();
 
     return view('admin.index')->with(compact('computers','logs'));
+  }else
+  {
+    return redirect()->back();
+  }
   }
   public function show(){
      $logs = $this->Log
