@@ -30,5 +30,16 @@ class AdminController extends Controller
 
     return view('admin.index')->with(compact('computers','logs'));
   }
+  public function show(){
+     $logs = $this->Log
+                  ->leftJoin('users','user_id','=','id')
+                  ->leftJoin('computers','computer_id','=','id')
+                  ->orderBy('id','desc')
+                  ->take(20)
+                  ->value('name','computer_names','circulation_flag','create_at');
+    return view('admin.index')->with(compact('logs',$logs));
+  }
+
+
 
 }

@@ -1,14 +1,18 @@
+<<<<<<< HEAD
 <?php
   $contents = $_GET['ctt'] 
 ?>
+=======
+<?php $id = $_GET['id'] ?>
+>>>>>>> 4b0303c51f43cea84750d2d20ddf8e35756976a9
 @extends('layouts.app')
 
 @section('content')
 <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-3 col-lg-2 sidebar-offcanvas" id="sidebar" role="navigation">
         <ul class="nav nav-pills nav-stacked">
-            <li class="nav-item"><a class="nav-link" href="admin?ctt=logs">貸出log一覧</a></li>
-            <li class="nav-item"><a class="nav-link" href="admin?ctt=computerss">PC情報編集</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url("admin?=id=logs") }}">貸出log一覧</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url("admin?id=computers") }}">PC情報編集</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Menu3</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Menu4</a></li>
         </ul>
@@ -18,9 +22,9 @@
 
       [コンテンツ]</br>
       ここには、log画面時にはドロップダウンリスト[users][computers][rownum]を、pc編集画面時にはボタン[add]を右寄せで設置...したい
-      @if($contents == "logs")
+      @if($id == "logs")
         @include('layouts.admin_contents.logs')
-      @else
+      @elseif($id == "computers")
         @include('layouts.admin_contents.computers')
       @endif
 
