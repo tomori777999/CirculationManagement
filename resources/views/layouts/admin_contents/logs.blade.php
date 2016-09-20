@@ -9,7 +9,6 @@
                   <th>Time</th>
               </tr>
           </thead>
-          @if(isset($name))
           <tbody>
             @foreach ($logs as $log)
               <tr>
@@ -24,11 +23,7 @@
               </tr>
             @endforeach
           </tbody>
-          @else
-            <tr>
-              <td>Logが存在しません</td>
-            </tr>
-          @endif
       </table>
+    </table>
     </div>
 </div>
