@@ -49,7 +49,6 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        //追加 for admin
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
@@ -83,10 +82,6 @@ return [
             'model' => App\Admin::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
@@ -115,8 +110,7 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        //追加 for admin
-        'admin' => [
+        'admins' => [
             'provider' => 'admins',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',

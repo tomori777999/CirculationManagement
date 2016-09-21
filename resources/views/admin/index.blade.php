@@ -1,4 +1,6 @@
-<?php $id = $_GET['id'] ?>
+@if (Auth::guard('admin')->check())
+
+<?php $id = 'logs' ?>
 
 @extends('layouts.app')
 
@@ -31,3 +33,7 @@
 </div>
 
 @endsection
+
+@else
+  <p>userです</p>
+@endif

@@ -18,6 +18,7 @@ class CirculationManagementController extends Controller
     {
         $this->computer = $computer;
         $this->log = $log;
+        $this->middleware('auth');
     }
 
     public function index()
