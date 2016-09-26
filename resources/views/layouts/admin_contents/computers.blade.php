@@ -9,7 +9,7 @@
               </tr>
             </thead>
                 <tbody>
-                  @foreach($computers as $computer)
+                  @foreach($data as $computer)
                   <tr>
                       <td>{{{ $computer->computer_name }}}</td>
                       <td>

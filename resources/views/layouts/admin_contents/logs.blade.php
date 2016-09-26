@@ -10,7 +10,7 @@
               </tr>
           </thead>
           <tbody>
-            @foreach ($logs as $log)
+            @foreach ($data as $log)
               <tr>
                   <td>{{ $log->name }}</td>
                   <td>{{ $log->computer_name }}</td>
