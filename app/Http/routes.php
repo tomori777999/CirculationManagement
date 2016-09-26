@@ -6,6 +6,9 @@ Route::post('circulatemanagement/replace','CirculationManagementController@repla
 // Route::group(['middleware' => 'web'],function(){
 // Route::group(['prefix' => '/'],function(){
   Route::resource('/', CirculationManagementController::class);
+  Route::put('circulatelist/update','CirculationManagementController@update');
+  Route::pUt('circulatelist/replace','CirculationManagementController@replace');
+
 // });
 // Route::group(['prefix' => '/admin'],function(){
 //   Route::resource('', AdminController::class);

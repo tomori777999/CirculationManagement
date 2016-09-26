@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  @if($user_status == 0)
+@if($user_status == 0)
 <div class="container">
 <h2 class="page-header">利用状況一覧</h2>
 <table class="table table-hover todo-table">
@@ -25,7 +25,7 @@
             <td style="color:gray" class="danger"> 貸出不可</td>
         @endif
 
-        {!! Form::open(['url' => 'circulatemanagement/update', 'method' => 'PUT']) !!}
+        {!! Form::open(['url' => 'circulatelist/update', 'method' => 'PUT']) !!}
         <td></td>
         <td>
         @if($computer->circulation_flag == 0)
@@ -47,7 +47,7 @@
 <p>
   別のPCを利用したい場合は"返却"をして下さい。
 </p>
-{!! Form::open(['url' => 'circulatemanagement/replace', 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'circulatelist/replace', 'method' => 'PUT']) !!}
   <button  type="submit" class="btn btn-success" >利用中のPCを返却する</button>
 {!! Form::close() !!}
 @endif

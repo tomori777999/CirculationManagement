@@ -72,9 +72,9 @@
                         </ul>
                     </li>
                     @else
-                    <li><a href="{{ url('/') }}">Login</a></li>
-                    <li><a href="{{ url('/admin/index') }}">adminLogin</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('/') }}">users_page</a></li>
+                    <li><a href="{{ url('/admin/index') }}">admins_page</a></li>
+                    <li><a href="{{ url('/register') }}">user_Register</a></li>
 
                     @endif
                 </ul>
