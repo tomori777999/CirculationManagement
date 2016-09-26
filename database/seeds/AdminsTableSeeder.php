@@ -10,19 +10,32 @@ class AdminsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-      //削除
-      Admin::truncate();
+     public function run()
+     {
+         DB::table('admins')->truncate();
 
-      //Admin生成
-      $admin = new Admin;
+         DB::table('admins')->insert([
+             [
+                 'name'      => 'admin01',
+                 'email' => 'admin01@sample.com',
+                 'password' => Hash::make('admin01'),
+             ],
+         ]);
 
-      $admin->name = "admin1";
-      $admin->email = "admin1@sample.com";
-      $admin->password = Hash::make('admin1');
-
-      //保存
-      $admin->save();
-    }
+     }
+    // public function run()
+    // {
+    //   //削除
+    //   Admin::truncate();
+    //
+    //   //Admin生成
+    //   $admin = new Admin;
+    //
+    //   $admin->name = "admin1";
+    //   $admin->email = "admin1@sample.com";
+    //   $admin->password = Hash::make('admin1');
+    //
+    //   //保存
+    //   $admin->save();
+    // }
 }

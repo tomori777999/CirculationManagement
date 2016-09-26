@@ -1,4 +1,14 @@
-@if (Auth::guard('admin')->check())
+<?php
+  // if(Auth::guard('admin')->check())
+  // {
+  //   var_dump("admin");
+  // }else {
+  //   var_dump("error");
+  // }
+  // exit;
+?>
+
+<!-- @if (Auth::guard('admin')->check()) -->
 
 <?php $id = 'logs' ?>
 
@@ -26,14 +36,12 @@
       @endif
 
 
-
-
     </div>
         <!--/main col-->
 </div>
 
 @endsection
 
-@else
+<!-- @else
   <p>userです</p>
-@endif
+@endif -->

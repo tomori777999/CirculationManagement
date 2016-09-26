@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Admin;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -29,8 +29,9 @@ class AdminAuthController extends Controller
      * @var string
      */
      protected $redirectTo = '/admin/index';
-     protected $loginView = 'admin/login';
+     protected $loginView = '/admin/login';
      protected $guard = 'admin';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -64,23 +65,10 @@ class AdminAuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-    }
-
-    public function showLoginForm()
-    {
-      return view('/admin/login');
-    }
-    public function login()
-    {
-      return view('/admin/index');
-    }
-    public function logout()
-    {
-      return view('/admin/index');
     }
 }

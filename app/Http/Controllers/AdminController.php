@@ -16,14 +16,15 @@ class AdminController extends Controller
   public function __construct(Computer $computer)
   {
       $this->computer = $computer;
-      $this->middleware('admin');
+      // $this->middleware('admin');
+      $this->middleware('auth:admin');
   }
 
   public function index()
   {
-    // $admin_flag = Auth::user()->admin_flag;
-    // if($admin_flag == 1)
-    // {
+    // if($this->auth->check())
+    if(Auth::guard('admin')->check())
+    {
     $computers = $this->computer->all();
     $logs =DB::table('logs')
                    ->leftJoin('users','user_id','=','users.id')
@@ -34,13 +35,15 @@ class AdminController extends Controller
                    ->get();
 
     return view('admin.index')->with(compact('computers','logs'));
-  // }else
-  // {
-  //   $worning_msg = '管理者以外の方はアクセスできないページです。';
-  //   return view('admin.notAdmin')->with(compact('worning_msg'));
-  // }
+  }else
+  {
+    $worning_msg = '管理者以外の方はアクセスできないページです。';
+    return view('admin.notAdmin')->with(compact('worning_msg'));
+  }
   }
   public function show(){
+    var_dump('admincontrollershow');
+    exit;
      $logs = $this->Log
                   ->leftJoin('users','user_id','=','id')
                   ->leftJoin('computers','computer_id','=','id')
