@@ -18,13 +18,12 @@
                         <table>
                           <tr>
                             <td>
-                              <a href="{{url('computer/update',$computer->id)}}"><span class="glyphicon glyphicon-pencil"></span>このPCを編集
-                              </a>&nbsp;
+                              <a href="#" onClick="document.edit_computer{{$computer->id}}.submit();">
+                                <span class="glyphicon glyphicon-pencil"></span>このPCを編集</a>
                             </td>
                             <td>
                               <a href="#" data-toggle="modal" data-target="#deleteModal{{$computer->id}}">
-                                <span class="glyphicon glyphicon-remove"></span>このPCを削除
-                              </a>
+                                <span class="glyphicon glyphicon-remove"></span>このPCを削除</a>
                             </td>
                           </tr>
                         </table>
@@ -41,8 +40,8 @@
                            <p>本当に削除してもいいですか</p>
                          </div>
                          <div class="modal-footer">
-                           {!! Form::open(['url'=>'computer/delete']) !!}
-                           {!! Form::hidden('id',$computer->id) !!}
+                           {!! Form::open(['url'=>'/admin/delete_computer']) !!}
+                           {!! Form::hidden('computer_id',$computer->id) !!}
                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                            <input type="submit" class="btn btn-danger" value="削除">
                            {!! Form::close() !!}
@@ -50,6 +49,11 @@
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                   </div><!-- /.modal -->
+                  <form name="edit_computer{{$computer->id}}" method="post" action="/admin/index" >
+                    <input type="hidden" name="form_name" value="edit_computer" />
+                    <input type="hidden" name="computer_id" value="{{$computer->id}}" />
+                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                  </form>
                   @endforeach
                     </tr>
                 </tbody>

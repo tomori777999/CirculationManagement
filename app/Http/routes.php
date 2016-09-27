@@ -23,6 +23,8 @@ Route::post('circulatemanagement/replace','CirculationManagementController@repla
       Route::get('/admin/home','AdminHomeController@index');
       Route::resource('/admin/index',AdminController::class);
       Route::post('/admin/add_computer','AdminController@addComputer');
+      Route::post('/admin/delete_computer','AdminController@deleteComputer');
+      Route::post('/admin/edit_computer','AdminController@editComputer');
     });
     Route::get('/admin/logout','Auth\AdminAuthController@logout');
 

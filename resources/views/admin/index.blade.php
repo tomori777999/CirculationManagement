@@ -27,6 +27,8 @@
         @include('layouts.admin_contents.computers')
       @elseif($form_name == "add_computer")
         @include('layouts.admin_contents.add_computer')
+      @elseif($form_name == "edit_computer")
+        @include('layouts.admin_contents.edit_computer')
       @endif
 
 

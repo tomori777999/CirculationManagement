@@ -82,7 +82,14 @@ class AdminController extends Controller
                        ->get();
       }elseif ($form_name == "add_computer") {
         return view('admin.index')->with(compact('form_name'));
+      }elseif($form_name == "edit_computer"){
+        $computer_id = Request::input('computer_id');
+        $data = DB::table('computers')
+                       ->where('id', $computer_id)
+                       ->get();
+        return view('admin.index')->with(compact('form_name','data'));
       }
+
       return view('admin.index')->with(compact('form_name','data'));
 
     }else{
@@ -92,8 +99,37 @@ class AdminController extends Controller
   }
   public function addComputer()
   {
-    $computer_name =  Request::input('title');
+    $computer_name =  Request::input('computer_name');
     DB::insert('insert into computers (computer_name) values (?)', [$computer_name]);
+
+    $form_name = "computers";
+    // $data = $this->computer->all();
+    $data = DB::table('computers')
+                   ->where('delete_flag', '0')
+                   ->orderBy('id')
+                   ->get();
+
+    return view('admin.index')->with(compact('form_name','data'));
+  }
+  public function deleteComputer()
+  {
+    $computer_id =  Request::input('computer_id');
+    DB::update('update computers set delete_flag = 1 where id = ?', [$computer_id]);
+
+    $form_name = "computers";
+    // $data = $this->computer->all();
+    $data = DB::table('computers')
+                   ->where('delete_flag', '0')
+                   ->orderBy('id')
+                   ->get();
+
+    return view('admin.index')->with(compact('form_name','data'));
+  }
+  public function editComputer()
+  {
+    $computer_id =  Request::input('computer_id');
+    $computer_name =  Request::input('computer_name');
+    DB::update('update computers set computer_name = ? where id = ?', [$computer_name,$computer_id]);
 
     $form_name = "computers";
     // $data = $this->computer->all();
