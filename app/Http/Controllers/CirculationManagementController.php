@@ -23,7 +23,10 @@ class CirculationManagementController extends Controller
 
     public function index()
     {
-        $computers = $this->computer->all();
+        $computers = DB::table('computers')
+                       ->where('delete_flag', '0')
+                       ->orderBy('id')
+                       ->get();
         $user_id = Auth::user()->id;
         $user_status =DB::table('logs')
                        ->where('user_id', $user_id)
