@@ -67,7 +67,11 @@ class AdminController extends Controller
       $data;
       if($form_name == "computers")
       {
-        $data = $this->computer->all();
+        // $data = $this->computer->all();
+        $data = DB::table('computers')
+                       ->where('delete_flag', '0')
+                       ->orderBy('id')
+                       ->get();
       }elseif ($form_name == "logs") {
         $data =DB::table('logs')
                        ->leftJoin('users','user_id','=','users.id')
@@ -92,7 +96,11 @@ class AdminController extends Controller
     DB::insert('insert into computers (computer_name) values (?)', [$computer_name]);
 
     $form_name = "computers";
-    $data = $this->computer->all();
+    // $data = $this->computer->all();
+    $data = DB::table('computers')
+                   ->where('delete_flag', '0')
+                   ->orderBy('id')
+                   ->get();
 
     return view('admin.index')->with(compact('form_name','data'));
   }
