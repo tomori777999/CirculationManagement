@@ -35,7 +35,7 @@ class AdminController extends Controller
                    ->leftJoin('users','user_id','=','users.id')
                    ->leftJoin('computers','computer_id','=','computers.id')
                    ->orderBy('logs.id','desc')
-                   ->take(20)
+                   ->take(30)
                    ->select('name','computer_name','logs.circulation_flag','logs.created_at')
                    ->get();
 
