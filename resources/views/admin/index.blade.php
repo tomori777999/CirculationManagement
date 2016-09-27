@@ -4,13 +4,13 @@
 <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-3 col-lg-2 sidebar-offcanvas" id="sidebar" role="navigation">
         <ul class="nav nav-pills nav-stacked">
-          <li class="nav-item"><form name="logs" method="post" action="/admin/index" >
-            <button type="submit" class="btn btn-link">貸出log</button>
+          <li class="nav-item"><a class="nav-link" href="#" onClick="document.logs.submit();">貸出log</a></li>
+            <form name="logs" method="post" action="/admin/index" >
             <input type="hidden" name="form_name" value="logs" />
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
           </form>
-          <li class="nav-item"><form name="computers" method="post" action="{{ url("/admin/index") }}" >
-            <button type="submit" class="btn btn-link">PC情報</button>
+          <li class="nav-item"><a class="nav-link" href="#" onClick="document.computers.submit();">管理PCリスト</a></li>
+            <form name="computers" method="post" action="{{ url("/admin/index") }}" >
             <input type="hidden" name="form_name" value="computers" />
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
           </form>
@@ -21,7 +21,7 @@
 
     <div class="col-md-9 col-lg-10 main">
 
-      
+
 
       @if($form_name == "logs")
         @include('layouts.admin_contents.logs')

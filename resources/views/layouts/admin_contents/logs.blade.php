@@ -6,8 +6,8 @@
         </caption>
           <thead class="thead-inverse">
               <tr>
-                  <th>UserName</th>
-                  <th>PCName</th>
+                  <th>User_Name</th>
+                  <th>PC_Name</th>
                   <th>Status</th>
                   <th>Time</th>
               </tr>
