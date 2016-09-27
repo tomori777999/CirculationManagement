@@ -76,6 +76,8 @@ class AdminController extends Controller
                        ->take(20)
                        ->select('name','computer_name','logs.circulation_flag','logs.created_at')
                        ->get();
+      }elseif ($form_name == "add_computer") {
+        return view('admin.index')->with(compact('form_name'));
       }
       return view('admin.index')->with(compact('form_name','data'));
 
@@ -83,6 +85,10 @@ class AdminController extends Controller
       $worning_msg = '管理者以外の方はアクセスできないページです。';
       return view('admin.notAdmin')->with(compact('worning_msg'));
     }
+  }
+  public function addComputer()
+  {
+    return var_dump('hello addComputer');
   }
 
 }

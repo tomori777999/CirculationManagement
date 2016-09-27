@@ -22,6 +22,7 @@ Route::post('circulatemanagement/replace','CirculationManagementController@repla
     Route::group(['middleware' => 'auth:admin'], function () {
       Route::get('/admin/home','AdminHomeController@index');
       Route::resource('/admin/index',AdminController::class);
+      Route::post('/admin/add_computer','AdminController@addComputer');
     });
     Route::get('/admin/logout','Auth\AdminAuthController@logout');
 
