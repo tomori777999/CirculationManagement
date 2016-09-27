@@ -72,8 +72,8 @@
                         </ul>
                     </li>
                     @else
-                    <li><a href="{{ url('/') }}">PCを利用/返却する</a></li>
-                    <li><a href="{{ url('/register') }}">ユーザー登録をする</a></li>
+                    <li><a href="{{ url('/') }}">PCの利用/返却</a></li>
+                    <li><a href="{{ url('/register') }}">ユーザー登録</a></li>
                     <li><a href="{{ url('/admin/index') }}">管理者画面</a></li>
 
                     @endif
