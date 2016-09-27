@@ -15,16 +15,22 @@
                   <tr>
                       <td>{{{ $computer->computer_name }}}</td>
                       <td>
-                          {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                              <button  type="submit" class="btn btn-success" >編集</button>
-                              <input type="hidden" name="computer_id" value="{{{$computer->id}}}">
-                          {!! Form::close() !!}
-                      </td>
-                      <td>
-                          {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
-                              <button  type="submit" class="btn btn-danger" >削除</button>
-                              <input type="hidden" name="computer_id" value="{{{$computer->id}}}">
-                          {!! Form::close() !!}
+                        <table>
+                          <tr>
+                            <td>
+                              {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
+                                  <button  type="submit" class="btn btn-success" >このPCを編集</button>
+                                  <input type="hidden" name="computer_id" value="{{{$computer->id}}}">
+                              {!! Form::close() !!}
+                            </td>
+                            <td>
+                              {!! Form::open(['url' => 'admins', 'method' => 'PUT']) !!}
+                                  <button  type="submit" class="btn btn-danger" >このPCを削除</button>
+                                  <input type="hidden" name="computer_id" value="{{{$computer->id}}}">
+                              {!! Form::close() !!}
+                            </td>
+                          </tr>
+                        </table>
                       </td>
                   </tr>
                   @endforeach
