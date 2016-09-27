@@ -88,7 +88,13 @@ class AdminController extends Controller
   }
   public function addComputer()
   {
-    return var_dump('hello addComputer');
+    $computer_name =  Request::input('title');
+    DB::insert('insert into computers (computer_name) values (?)', [$computer_name]);
+
+    $form_name = "computers";
+    $data = $this->computer->all();
+
+    return view('admin.index')->with(compact('form_name','data'));
   }
 
 }
