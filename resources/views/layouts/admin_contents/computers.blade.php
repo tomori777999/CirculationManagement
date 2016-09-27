@@ -2,11 +2,7 @@
     <div class="table-responsive">
         <table class="table table-striped" style="table-layout:fixed;">
           <caption>
-            <ul class="list-inline">
-              <li><h2>【管理PCリスト】</h2></li>
-              <li><a class="btn btn-success" href="/admin/create">新しいPCを追加</a></li>
-              </li>
-            </ul>
+            <h2>【管理PCリスト】</h2>
           </caption>
             <thead class="thead-inverse">
               <tr>
@@ -41,5 +37,6 @@
                     </tr>
                 </tbody>
             </table>
+            <a class="btn btn-success" href="/admin/create">新しいPCを追加</a>
         </div>
     </div>
