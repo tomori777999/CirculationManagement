@@ -21,7 +21,7 @@
 
     <div class="col-md-9 col-lg-10 main">
 
-      [コンテンツ]</br>
+      
 
       @if($form_name == "logs")
         @include('layouts.admin_contents.logs')

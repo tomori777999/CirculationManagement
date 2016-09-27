@@ -1,6 +1,9 @@
 <div class="col-lg-9 col-md-8">
     <div class="table-responsive">
       <table class="table table-striped">
+        <caption>
+          <h2>【貸出log】</h2>
+        </caption>
           <thead class="thead-inverse">
               <tr>
                   <th>UserName</th>

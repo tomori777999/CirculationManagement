@@ -1,7 +1,9 @@
 <div class="col-lg-9 col-md-8">
-  <a class="btn btn-success" href="/admin/create">新しいPCを追加</a>
     <div class="table-responsive">
         <table class="table table-striped">
+          <caption>
+            <h2>【管理PCリスト】</h2><a class="btn btn-success" href="/admin/create">新しいPCを追加</a>
+          </caption>
             <thead class="thead-inverse">
               <tr>
                   <th>Computer_name</th>
