@@ -1,6 +1,6 @@
 <div class="col-lg-9 col-md-8">
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-striped" style="table-layout:fixed;">
           <caption>
             <ul class="list-inline">
               <li><h2>【管理PCリスト】</h2></li>
@@ -10,14 +10,14 @@
           </caption>
             <thead class="thead-inverse">
               <tr>
-                  <th>PC_Name</th>
+                  <th style="width:300px;">PC_Name</th>
                   <th>Edit_Menu</th>
               </tr>
             </thead>
                 <tbody>
                   @foreach($data as $computer)
                   <tr>
-                      <td>{{{ $computer->computer_name }}}</td>
+                      <td class="td_vertical_align_middle" style="width:300px;">{{{ $computer->computer_name }}}</td>
                       <td>
                         <table>
                           <tr>

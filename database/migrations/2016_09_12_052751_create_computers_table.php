@@ -16,7 +16,7 @@ class CreateComputersTable extends Migration
       {
           $table->increments('id');
           $table->string('computer_name');
-          $table->integer('circulation_flag');
+          $table->integer('circulation_flag')->default(0);
           $table->integer('delete_flag')->default(0);
       });
     }

@@ -1,26 +1,26 @@
 <div class="col-lg-9 col-md-8">
     <div class="table-responsive">
-      <table class="table table-striped">
+      <table class="table table-striped" style="table-layout:fixed;">
         <caption>
           <h2>【貸出log】</h2>
         </caption>
           <thead class="thead-inverse">
               <tr>
-                  <th>User_Name</th>
-                  <th>PC_Name</th>
-                  <th>Status</th>
+                  <th style="width:200px;">User_Name</th>
+                  <th style="width:200px;">PC_Name</th>
+                  <th style="width:150px;">Status</th>
                   <th>Time</th>
               </tr>
           </thead>
           <tbody>
             @foreach ($data as $log)
               <tr>
-                  <td>{{ $log->name }}</td>
-                  <td>{{ $log->computer_name }}</td>
+                  <td style="width:200px;">{{ $log->name }}</td>
+                  <td style="width:200px;">{{ $log->computer_name }}</td>
                     @if($log->circulation_flag == 1)
-                      <td>利用開始</td>
+                      <td style="width:150px;">利用開始</td>
                     @elseif($log->circulation_flag == 0)
-                      <td>返却</td>
+                      <td style="width:150px;">返却</td>
                     @endif
                   <td>{{ $log->created_at }}</td>
               </tr>
