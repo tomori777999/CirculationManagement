@@ -10,7 +10,7 @@
     </tr>
     </thead>
     <tbody class="table-hover">
-    @foreach($computers as $computer)
+    @foreach($data as $computer)
     <tr>
         <th>{{{ $computer->computer_name }}}</th>
 

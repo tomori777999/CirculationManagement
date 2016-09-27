@@ -23,18 +23,29 @@ class CirculationManagementController extends Controller
 
     public function index()
     {
-        $computers = DB::table('computers')
-                       ->where('delete_flag', '0')
-                       ->orderBy('id')
-                       ->get();
-        $user_id = Auth::user()->id;
-        $user_status =DB::table('logs')
+      $user_id = Auth::user()->id;
+      $user_status =DB::table('logs')
+                     ->where('user_id', $user_id)
+                     ->orderBy('id','desc')
+                     ->take(1)
+                     ->value('circulation_flag');
+      $data;
+      if($user_status == 1){
+        $computer_id = DB::table('logs')
                        ->where('user_id', $user_id)
                        ->orderBy('id','desc')
                        ->take(1)
-                       ->value('circulation_flag');
-
-        return view('circulatemanagement.circulatelist')->with(compact('computers','user_status'));
+                       ->value('computer_id');
+        $data = DB::table('computers')
+                       ->where('id', $computer_id)
+                       ->value('computer_name');
+      }else{
+        $data = DB::table('computers')
+                       ->where('delete_flag', '0')
+                       ->orderBy('id')
+                       ->get();
+      }
+        return view('circulatemanagement.circulatelist')->with(compact('data','user_status'));
     }
 
     public function update(Request $request)

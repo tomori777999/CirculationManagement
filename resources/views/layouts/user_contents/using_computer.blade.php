@@ -1,6 +1,5 @@
 <div class="container">
-<h2 class="page-header">現在利用中です</h2>
-
+<h2 class="page-header">現在『{{$data}}』を利用中です</h2>
 <p>
   別のPCを利用したい場合は"返却"をして下さい。
 </p>
