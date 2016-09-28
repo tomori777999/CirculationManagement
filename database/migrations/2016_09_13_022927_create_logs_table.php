@@ -16,8 +16,8 @@ class CreateLogsTable extends Migration
           $table->increments('id');
           $table->integer('user_id');
           $table->integer('computer_id');
-          $table->integer('circulation_flag');
-          $table->timestamp('created_at');
+          $table->integer('circulation_flag')->default(0);
+          $table->timestamps();
       });
     }
 
